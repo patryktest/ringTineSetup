@@ -11,6 +11,7 @@
 
 
  <script type="text/javascript" src="cordova.js"></script>
+ <script type="text/javascript" charset="utf-8" src="./js/VolumeControl.js"></script>
  <script src="./js/jquery.min.js"></script>
 <script type="text/javascript">
 /*function onLoad(){
@@ -37,15 +38,24 @@ function init(){
 	var options = { frequency: 3000 };  // Update every 3 seconds
 
 	var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
+	VolumeControl.getVolume(getVolSuccess, getVolError);
 
 	
 }
 
+function getVolSuccess(r){
+	alert(r);
+}
+function getVolError(){
+	//dsa;
+}
 function onSuccess(acceleration){
-content.text('Acceleration X: ' + acceleration.x + '\n' +
-          'Acceleration Y: ' + acceleration.y + '\n' +
-          'Acceleration Z: ' + acceleration.z + '\n' +
-          'Timestamp: '      + acceleration.timestamp + '\n');
+if(acceleration.x>-1 && acceleration.x<1 && acceleration.y>-1 && acceleration.x<1)
+	content.text('Acceleration X: ' + acceleration.x + '\n' +
+			  'Acceleration Y: ' + acceleration.y + '\n' +
+			  'Acceleration Z: ' + acceleration.z + '\n' +
+			  'Timestamp: '      + acceleration.timestamp + '\n'+
+			  ' Ring off'\n');
 
 	
 }
