@@ -33,7 +33,6 @@ function onDeviceReady()
 function init(){
 	content = $('#status');
 	content.text("");
-	content.text("start accelerometer");
 	var options = { frequency: 3000 };  // Update every 3 seconds
 
 	var watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
@@ -42,12 +41,19 @@ function init(){
 }
 
 function onSuccess(acceleration){
+<<<<<<< HEAD
 if(acceleration.x>-1 && acceleration.x<1 && acceleration.y>-1 && acceleration.x<1)
 	content.text('Acceleration X: ' + acceleration.x + '\n' +
 			  'Acceleration Y: ' + acceleration.y + '\n' +
 			  'Acceleration Z: ' + acceleration.z + '\n' +
 			  'Timestamp: '      + acceleration.timestamp + '\n'+
 			  ' Ring off'\n');
+=======
+alert('Acceleration X: ' + acceleration.x + '\n' +
+          'Acceleration Y: ' + acceleration.y + '\n' +
+          'Acceleration Z: ' + acceleration.z + '\n' +
+          'Timestamp: '      + acceleration.timestamp + '\n');
+>>>>>>> parent of 499effb... test2
 
 	
 }
